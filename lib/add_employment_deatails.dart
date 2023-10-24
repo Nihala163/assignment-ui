@@ -20,6 +20,49 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
   var work_till_month=TextEditingController();
 
   String fresher='Yes';
+
+  String dropdownvalue='Select';
+  var cmpny_location=[
+    'Arunachal_Pradesh',
+    'Assam',
+    'Bihar',
+    'Chhattisgarh',
+    'Goa',
+    'Gujarat',
+    'Haryana',
+    'Himachal_Pradesh',
+    'Jammu_and_Kashmir',
+    'Jharkhand',
+    'Karnataka',
+    'Kerala',
+    'Madhya_Pradesh',
+    'Maharashtra',
+    'Manipur',
+    'Meghalaya',
+    'Mizoram',
+    'Nagaland',
+    'Orissa',
+    'Punjab',
+    'Rajasthan',
+    'Sikkim',
+    'Tamil_Nadu',
+    'Tripura',
+    'Uttarakhand',
+    'Uttar_Pradesh',
+    'West_Bengal',
+    'Tamil_Nadu',
+    'Tripura',
+    'Chandigarh',
+    'Delhi',
+  ];
+  String dropdownvalue1='Select';
+  var cmpny_department=[
+    'Finance',
+    'Marketing',
+    'Operation manager',
+    'Human resource',
+    'Information technology'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +113,21 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                   child: Flexible(
                     child: TextFormField(
                       controller: company_location,
+                      onTap: (){
+                        DropdownButton(value: dropdownvalue,
+                          icon: const Icon(Icons.arrow_drop_down),
+                          items: cmpny_location.map((String cmpny_location){
+                            return DropdownMenuItem(
+                              value: cmpny_location,child: Text(cmpny_location),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownvalue=newValue!;
+                            });
+                          },
+                        );
+                      },
                       decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Enter company location'),
                     ),
                   ),
@@ -79,6 +137,21 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                   child: Flexible(
                     child: TextFormField(
                       controller: company_department,
+                      onTap: (){
+                        DropdownButton(value: dropdownvalue,
+                          icon: const Icon(Icons.arrow_drop_down),
+                          items: cmpny_department.map((String cmpny_department){
+                            return DropdownMenuItem(
+                              value: cmpny_department,child: Text(cmpny_department),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownvalue=newValue!;
+                            });
+                          },
+                        );
+                      },
                       decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Enter company department'),
                     ),
                   ),

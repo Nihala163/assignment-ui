@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.orange,
       ),
-      home: Profile_view(),
+      home: Add_Employment_details(),
     );
   }
 }

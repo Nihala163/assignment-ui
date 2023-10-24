@@ -1,6 +1,5 @@
 import 'package:assignment_ui/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home.dart';
 
@@ -48,7 +47,8 @@ class _Add_aboutState extends State<Add_about> {
                       hintText: "Enter about",
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            width: 1, color: Colors.white30),
+                            width: 1,
+                            color: Colors.white30),
                       ),
                     ),
                   ),

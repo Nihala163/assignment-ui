@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:assignment_ui/add_employment.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,6 +24,8 @@ class _Add_DetailsState extends State<Add_Details> {
   var dob=TextEditingController();
 
   String gender='male';
+
+  set XFileimage(XFile? XFileimage) {}
 
   Future<void>user_details() async {
     final data=await SharedPreferences.getInstance();
@@ -60,6 +66,7 @@ class _Add_DetailsState extends State<Add_Details> {
     print(dob);
   }
   var screensize;
+  XFile? image;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +89,11 @@ class _Add_DetailsState extends State<Add_Details> {
                       ),
                         Padding(
                           padding: const EdgeInsets.only(top: 60,left:59 ),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.add_a_photo)),
+                          child: IconButton(onPressed: () async {
+                            ImagePicker image=ImagePicker();
+                            XFileimage=await image.pickImage(source: ImageSource.gallery);
+                           
+                          }, icon: const Icon(Icons.add_a_photo)),
                         )]),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -160,7 +171,7 @@ class _Add_DetailsState extends State<Add_Details> {
                       ),
                       ElevatedButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return Add_education();
+                          return Add_employment();
                         }));
                       },child: Icon(Icons.arrow_right_alt_sharp)),
                     ],

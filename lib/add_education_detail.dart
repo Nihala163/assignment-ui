@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 import 'add_resume.dart';
@@ -35,28 +37,53 @@ class _Add_education_deatilsState extends State<Add_education_deatils> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text('Add your education')),),
-      body: SizedBox(
-        height:MediaQuery.of(context).size.height ,
-        width:MediaQuery.of(context).size.width ,
-        child: ListView(
-          children: [
-            Form(key: formkey,
-              child:Flexible(
+      appBar: AppBar(title: const Center(child: Text('Add your education')),),
+      body: ListView(
+        children: [
+          Flexible(flex: 3,
+            child: Form(key: formkey,
+              child:Flexible(flex: 2,
                 child: Column(
                   children: [
-                    Flexible(
+                    TextFormField(
+                      controller: education,
+                      decoration: const InputDecoration(border: OutlineInputBorder(),hintText: 'Education'),
+                      onTap: () {
+                        DropdownButton(
+                          value: dropdownvalue,
+                          icon: const Icon(Icons.arrow_drop_down_outlined),
+                          items: education1.map((String education){
+                            return DropdownMenuItem(child: Text(education),value: education,);
+                          }).toList(),
+                          onChanged: (String?newValue){
+                            setState(() {
+                              dropdownvalue=newValue!;
+                            });
+                          },
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                        controller: education,
-                        decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Education'),
-                        onTap: () {
-                          DropdownButton(
-                            value: dropdownvalue,
-                            icon: Icon(Icons.arrow_drop_down_outlined),
-                            items: education1.map((String education){
-                              return DropdownMenuItem(child: Text(education),value: education,);
+                        controller: university,
+                        decoration: const InputDecoration(border: OutlineInputBorder(),hintText: 'University/College'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        controller: course,
+                        decoration: const InputDecoration(border: OutlineInputBorder(),hintText: 'Course'),
+                        onTap: (){
+                          DropdownButton(value: dropdownvalue,
+                            icon: const Icon(Icons.arrow_drop_down),
+                            items: course1.map((String course){
+                              return DropdownMenuItem(
+                                value: course,child: Text(course),
+                              );
                             }).toList(),
-                            onChanged: (String?newValue){
+                            onChanged: (String? newValue) {
                               setState(() {
                                 dropdownvalue=newValue!;
                               });
@@ -65,56 +92,23 @@ class _Add_education_deatilsState extends State<Add_education_deatils> {
                         },
                       ),
                     ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          controller: university,
-                          decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'University/College'),
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          controller: course,
-                          decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Course'),
-                          onTap: (){
-                            DropdownButton(value: dropdownvalue,
-                              icon: Icon(Icons.arrow_drop_down),
-                              items: course1.map((String course){
-                                return DropdownMenuItem(
-                                  value: course,child: Text(course),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownvalue=newValue!;
-                                });
-                              },
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    Flexible(
+                    Flexible(flex: 2,
                       child: Column(
-                        children: [Text('Course_type'),
+                        children: [const Text('Course_type'),
                           Flexible(
                             child: Row(
                               children: [
-                                RadioListTile(title: Text('Full time'),value: 'Full time', groupValue:course_type, onChanged: (value){
+                                RadioListTile(title: const Text('Full time'),value: 'Full time', groupValue:course_type, onChanged: (value){
                                   setState(() {
                                     course_type=value.toString();
                                   });
                                 }),
-                                RadioListTile(title: Text('Part time'),value: 'Part time', groupValue:course_type, onChanged: (value){
+                                RadioListTile(title: const Text('Part time'),value: 'Part time', groupValue:course_type, onChanged: (value){
                                   setState(() {
                                     course_type=value.toString();
                                   });
                                 }),
-                                RadioListTile(title: Text('Distance'),value: 'Distance', groupValue:course_type, onChanged: (value){
+                                RadioListTile(title: const Text('Distance'),value: 'Distance', groupValue:course_type, onChanged: (value){
                                   setState(() {
                                     course_type=value.toString();
                                   });
@@ -125,45 +119,42 @@ class _Add_education_deatilsState extends State<Add_education_deatils> {
                         ],
                       ),
                     ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          controller: course_duration_start,
-                          decoration: InputDecoration(border: OutlineInputBorder(),hintText:'Start date'),
-                          onTap: ()async {
-                            var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2050));
-                            if (date!=null){
-                              print(date);
-                            }
-                          },
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        controller: course_duration_start,
+                        decoration: const InputDecoration(border: OutlineInputBorder(),hintText:'Start date'),
+                        onTap: ()async {
+                          var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2050));
+                          if (date!=null){
+                            print(date);
+                          }
+                        },
                       ),
                     ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          controller: course_duration_end,
-                          decoration: InputDecoration(border: OutlineInputBorder(),hintText:'End date'),
-                          onTap: ()async {
-                            var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2050));
-                            if (date!=null){
-                              print(date);
-                            }
-                          },
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        controller: course_duration_end,
+                        decoration: const InputDecoration(border: OutlineInputBorder(),hintText:'End date'),
+                        onTap: ()async {
+                          var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2050));
+                          if (date!=null){
+                            print(date);
+                          }
+                        },
                       ),
                     ),
-                    Flexible(
+                    Flexible(flex: 1,
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ElevatedButton(onPressed:(){} , child: Text('Cancel')),
+                          ElevatedButton(onPressed:(){} , child: const Text('Cancel'),
+                              style: ElevatedButton.styleFrom(backgroundColor: Color(0XFFFFFFFF))),
                           ElevatedButton(onPressed:(){
                             Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return Add_resume();
+                              return const Add_resume();
                             }));
-                          } , child: Text('Submit')),
+                          } , child: const Text('Submit')),
                         ],
                       ),
                     ),
@@ -171,8 +162,8 @@ class _Add_education_deatilsState extends State<Add_education_deatils> {
                 ),
               ) ,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

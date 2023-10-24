@@ -1,3 +1,8 @@
+import 'package:assignment_ui/Add_certification.dart';
+import 'package:assignment_ui/add_about.dart';
+import 'package:assignment_ui/add_education.dart';
+import 'package:assignment_ui/add_language.dart';
+import 'package:assignment_ui/add_profile.dart';
 import 'package:flutter/material.dart';
 
 class Profile_view extends StatefulWidget {
@@ -26,7 +31,7 @@ class _Profile_viewState extends State<Profile_view> {
                   ],
                 ),
                 Row(
-                  children: const [Text('Name',style: TextStyle(fontWeight: FontWeight.bold),),
+                  children: const [Center(child: Text('Name',style: TextStyle(fontWeight: FontWeight.bold),)),
                     Padding(
                       padding: EdgeInsets.only(left: 200),
                       child: CircleAvatar(backgroundImage: AssetImage('Assets/download.jpg'),
@@ -72,7 +77,11 @@ class _Profile_viewState extends State<Profile_view> {
                         const Text('Add Personal Details'),
                         Padding(
                           padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right)),
+                          child: IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return Add_Details();
+                            }));
+                          }, icon: const Icon(Icons.keyboard_arrow_right)),
                         )
                       ],
                     ),
@@ -86,16 +95,20 @@ class _Profile_viewState extends State<Profile_view> {
                           Color(0xFFFFF7EC)]),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                           bottomRight: Radius.circular(10),
+                           topRight: Radius.circular(10)
                         )
                     ),
                     child: Row(
                       children: [
                         const Text('Add Present Experience'),
                         Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right)),
+                          padding: const EdgeInsets.only(left: 100),
+                          child: IconButton(onPressed: (){
+
+                          }, icon: const Icon(Icons.keyboard_arrow_right)),
                         )
                       ],
                     ),
@@ -109,16 +122,22 @@ class _Profile_viewState extends State<Profile_view> {
                           Color(0xFFFFF7EC)]),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                            topRight: Radius.circular(10)
                         )
                     ),
                     child: Row(
                       children: [
                         const Text('Add Education'),
                         Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right)),
+                          padding: const EdgeInsets.only(left: 150),
+                          child: IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return Add_education();
+                            }));
+                          }, icon: const Icon(Icons.keyboard_arrow_right)),
                         )
                       ],
                     ),
@@ -132,16 +151,22 @@ class _Profile_viewState extends State<Profile_view> {
                           Color(0xFFFFF7EC)]),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                            topRight: Radius.circular(10)
                         )
                     ),
                     child: Row(
                       children: [
                         const Text('Add Skill'),
                         Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right)),
+                          padding: const EdgeInsets.only(left: 190),
+                          child: IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return Add_about();
+                            }));
+                          }, icon: const Icon(Icons.keyboard_arrow_right)),
                         )
                       ],
                     ),
@@ -155,16 +180,22 @@ class _Profile_viewState extends State<Profile_view> {
                           Color(0xFFFFF7EC)]),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                            topRight: Radius.circular(10)
                         )
                     ),
                     child: Row(
                       children: [
                         const Text('Add Certification'),
                         Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right)),
+                          padding: const EdgeInsets.only(left: 140),
+                          child: IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return Add_Certification();
+                            }));
+                          }, icon: const Icon(Icons.keyboard_arrow_right)),
                         )
                       ],
                     ),
@@ -178,16 +209,22 @@ class _Profile_viewState extends State<Profile_view> {
                           Color(0xFFFFF7EC)]),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                            topRight: Radius.circular(10)
                         )
                     ),
                     child: Row(
                       children: [
                         const Text('Add Language'),
                         Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right)),
+                          padding: const EdgeInsets.only(left: 150),
+                          child: IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return Add_Language();
+                            }));
+                          }, icon: const Icon(Icons.keyboard_arrow_right)),
                         )
                       ],
                     ),

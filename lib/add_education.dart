@@ -29,7 +29,7 @@ class _Add_educationState extends State<Add_education> {
                   padding: const EdgeInsets.only(top: 100),
                   child: ElevatedButton(onPressed:(){
                     Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return Add_education_deatils();
+                      return AddEducationDetails();
                     }));
                   } , child:Icon(Icons.arrow_right_alt_sharp) ),
                 )

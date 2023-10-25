@@ -66,7 +66,7 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Add employment'),),
+        appBar: AppBar(title: const Text('Add employment'),),
         body: SingleChildScrollView(
           child: Form(
             key:formkey ,
@@ -74,9 +74,9 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
               children: [
                 Row(
                   children: [
-                    Text('Are you a Fresher'),
+                    const Text('Are you a Fresher'),
                     Flexible(
-                      child: RadioListTile(title: Text('Yes'),
+                      child: RadioListTile(title: const Text('Yes'),
                         value: 'yes',
                         groupValue: fresher,
                         onChanged: (value){
@@ -87,7 +87,7 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                       ),
                     ),
                     Flexible(
-                      child: RadioListTile(title: Text('No'),
+                      child: RadioListTile(title: const Text('No'),
                         value: 'no',
                         groupValue: fresher,
                         onChanged: (value){
@@ -104,7 +104,10 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                   child: Flexible(
                     child: TextFormField(
                       controller: company_name,
-                      decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Enter company name'),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter company name',
+                      labelText: 'Company name'),
                     ),
                   ),
                 ),
@@ -128,7 +131,10 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                           },
                         );
                       },
-                      decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Enter company location'),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter company location',
+                      labelText: 'Company location'),
                     ),
                   ),
                 ),
@@ -152,20 +158,28 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                           },
                         );
                       },
-                      decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Enter company department'),
+                      decoration: const InputDecoration(border: OutlineInputBorder(),hintText: 'Enter company department'),
                     ),
                   ),
                 ),
                 Row(
-                  children: [Text('Work From'),
+                  children: [const Text('Working From'),
                     Flexible(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           controller: work_from_year,
-                          decoration: InputDecoration(border:OutlineInputBorder (),hintText: 'Year',icon: Icon(Icons.calendar_month_rounded)),
+                          decoration: const InputDecoration(
+                              border:OutlineInputBorder (),
+                              hintText: 'Year',
+                              icon: Icon(Icons.calendar_month_rounded)
+                          ),
                           onTap: ()async {
-                            var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(240));
+                            var date=await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(1990),
+                                lastDate: DateTime(240));
                             if (date!=null){
                               print(DateFormat('YY').format(date!));
                             }
@@ -179,9 +193,15 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           controller: work_from_month,
-                          decoration: InputDecoration(border:OutlineInputBorder (),hintText: 'Month',icon: Icon(Icons.calendar_month_rounded)),
+                          decoration: const InputDecoration(border:OutlineInputBorder (),
+                              hintText: 'Month',
+                              icon: Icon(Icons.calendar_month_rounded)),
                           onTap: ()async {
-                            var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(01), lastDate: DateTime(31));
+                            var date=await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(01),
+                                lastDate: DateTime(31));
                             if (date!=null){
                               print(DateFormat('MM').format(date!));
                             }
@@ -192,13 +212,13 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                   ],
                 ),
                 Row(
-                  children: [Text('Work Till'),
+                  children: [const Text('Working Till'),
                     Flexible(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           controller: work_till_year,
-                          decoration: InputDecoration(border:OutlineInputBorder (),hintText: 'Year',icon: Icon(Icons.calendar_month_rounded)),
+                          decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Year',icon: Icon(Icons.calendar_month_rounded)),
                           onTap: ()async {
                             var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2040));
                             if (date!=null){
@@ -213,7 +233,7 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           controller: work_till_month,
-                          decoration: InputDecoration(border:OutlineInputBorder (),hintText: 'Month',icon: Icon(Icons.calendar_month_rounded)),
+                          decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Month',icon: Icon(Icons.calendar_month_rounded)),
                           onTap: ()async {
                             var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(01), lastDate: DateTime(31));
                             if (date!=null){
@@ -229,12 +249,12 @@ class _Add_Employment_detailsState extends State<Add_Employment_details> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButton(onPressed: (){}, child: Text('Cancel')),
+                      ElevatedButton(onPressed: (){}, child: const Text('Cancel')),
                       ElevatedButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder:(context){
-                          return Add_education();
+                          return const Add_education();
                         }));
-                      }, child: Text('Submit')),
+                      }, child: const Text('Submit')),
                     ],
                   ),
                 ),

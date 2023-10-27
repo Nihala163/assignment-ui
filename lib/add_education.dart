@@ -13,7 +13,7 @@ class _Add_educationState extends State<Add_education> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Center(child: Text('Add your Details')),),
+        appBar: AppBar(title: Center(child: Text('Add Education Details')),),
         body:Padding(
           padding: const EdgeInsets.only(top: 200),
           child: Center(

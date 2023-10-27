@@ -84,8 +84,8 @@ class _Add_DetailsState extends State<Add_Details> {
                 child: Flexible(
                   child: Column(
                     children: [
-                      Stack(children: [const CircleAvatar(backgroundImage: AssetImage('Assets/white.jpg'),
-                        maxRadius: 50,
+                      Stack(children: [const CircleAvatar(backgroundColor: Colors.orange,
+                        maxRadius: 50,child: CircleAvatar(backgroundColor: Colors.white,maxRadius: 45,),
                       ),
                         Padding(
                           padding: const EdgeInsets.only(top: 60,left:59 ),

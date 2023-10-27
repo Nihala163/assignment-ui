@@ -10,6 +10,7 @@ class Add_resume extends StatefulWidget {
 
 class _Add_resumeState extends State<Add_resume> {
   var screensize;
+
   @override
   Widget build(BuildContext context) {
     screensize =MediaQuery.of(context).size;

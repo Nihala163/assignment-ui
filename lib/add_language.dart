@@ -1,3 +1,4 @@
+import 'package:assignment_ui/languag%20list.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +30,9 @@ class _Add_LanguageState extends State<Add_Language> {
                       child: Center(
                         child: Container(height: 200,width: 400,
                           child: TextButton(onPressed:(){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return AddingLanguage();
+                            }));
                           } ,child: const Center(child: Text('Add Language'))),
                         ),
                       ),

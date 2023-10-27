@@ -7,6 +7,7 @@ import 'package:assignment_ui/add_profile.dart';
 import 'package:assignment_ui/filter.dart';
 import 'package:assignment_ui/home.dart';
 import 'package:assignment_ui/profile.dart';
+import 'package:assignment_ui/whishlist.dart';
 import 'package:flutter/material.dart';
 
 import 'add_language.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.orange,
       ),
-      home: AddEducationDetails(),
+      home: Profile_view(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:assignment_ui/add_about.dart';
 import 'package:assignment_ui/add_education.dart';
 import 'package:assignment_ui/add_language.dart';
 import 'package:assignment_ui/add_profile.dart';
+import 'package:assignment_ui/home.dart';
 import 'package:flutter/material.dart';
 
 class Profile_view extends StatefulWidget {
@@ -23,7 +24,11 @@ class _Profile_viewState extends State<Profile_view> {
               children: [
                 Row(
                   children: [
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_rounded)),
+                    IconButton(onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return const Home();
+                      }));
+                    }, icon: const Icon(Icons.arrow_back_rounded)),
                     const Padding(
                       padding: EdgeInsets.only(left: 150),
                       child: Text('Profile',style: TextStyle(fontWeight: FontWeight.bold),),
@@ -63,173 +68,212 @@ class _Profile_viewState extends State<Profile_view> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(height: 50,width: 300,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(colors: [Color(0xFFFFCA86),
-                          Color(0xFFFFF7EC)]),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        )
-                    ),
-                    child: Row(
-                      children: [
-                        const Text('Add Personal Details'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: IconButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const Add_Details();
-                            }));
-                          }, icon: const Icon(Icons.keyboard_arrow_right)),
-                        )
-                      ],
+                  child: ElevatedButton(onPressed:(){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return const Add_Details();
+                    }));
+                  } ,
+                    child: Container(height: 50,width: 300,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [Color(0xFFFFCA86),
+                            Color(0xFFFFF7EC)]),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('Add Personal Details'),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 120),
+                            child: IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return const Add_Details();
+                              }));
+                            }, icon: const Icon(Icons.keyboard_arrow_right)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(height: 50,width: 300,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(colors: [Color(0xFFFFCA86),
-                          Color(0xFFFFF7EC)]),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                           bottomRight: Radius.circular(10),
-                           topRight: Radius.circular(10)
-                        )
-                    ),
-                    child: Row(
-                      children: [
-                        const Text('Add Present Experience'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 100),
-                          child: IconButton(onPressed: (){
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return const Add_about();
+                    }));
+                  },
+                    child: Container(height: 50,width: 300,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [Color(0xFFFFCA86),
+                            Color(0xFFFFF7EC)]),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                             bottomRight: Radius.circular(10),
+                             topRight: Radius.circular(10)
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('Add Present Experience'),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 100),
+                            child: IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return const Add_about();
+                              }));
 
-                          }, icon: const Icon(Icons.keyboard_arrow_right)),
-                        )
-                      ],
+                            }, icon: const Icon(Icons.keyboard_arrow_right)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(height: 50,width: 300,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(colors: [Color(0xFFFFCA86),
-                          Color(0xFFFFF7EC)]),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                            topRight: Radius.circular(10)
-                        )
-                    ),
-                    child: Row(
-                      children: [
-                        const Text('Add Education'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 150),
-                          child: IconButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const Add_education();
-                            }));
-                          }, icon: const Icon(Icons.keyboard_arrow_right)),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(height: 50,width: 300,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(colors: [Color(0xFFFFCA86),
-                          Color(0xFFFFF7EC)]),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                            topRight: Radius.circular(10)
-                        )
-                    ),
-                    child: Row(
-                      children: [
-                        const Text('Add Skill'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 190),
-                          child: IconButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const Add_about();
-                            }));
-                          }, icon: const Icon(Icons.keyboard_arrow_right)),
-                        )
-                      ],
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return const Add_education();
+                    }));
+                  },
+                    child: Container(height: 50,width: 300,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [Color(0xFFFFCA86),
+                            Color(0xFFFFF7EC)]),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10)
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('Add Education'),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 150),
+                            child: IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return const Add_education();
+                              }));
+                            }, icon: const Icon(Icons.keyboard_arrow_right)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(height: 50,width: 300,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(colors: [Color(0xFFFFCA86),
-                          Color(0xFFFFF7EC)]),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                            topRight: Radius.circular(10)
-                        )
-                    ),
-                    child: Row(
-                      children: [
-                        const Text('Add Certification'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 140),
-                          child: IconButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const Add_Certification();
-                            }));
-                          }, icon: const Icon(Icons.keyboard_arrow_right)),
-                        )
-                      ],
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return const Add_about();
+                    }));
+                  },
+                    child: Container(height: 50,width: 300,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [Color(0xFFFFCA86),
+                            Color(0xFFFFF7EC)]),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10)
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('Add Skill'),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 190),
+                            child: IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return const Add_about();
+                              }));
+                            }, icon: const Icon(Icons.keyboard_arrow_right)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(height: 50,width: 300,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(colors: [Color(0xFFFFCA86),
-                          Color(0xFFFFF7EC)]),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                            topRight: Radius.circular(10)
-                        )
+                  child: ElevatedButton(onPressed:(){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return const Add_Certification();
+                    }));
+                  } ,
+                    child: Container(height: 50,width: 300,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [Color(0xFFFFCA86),
+                            Color(0xFFFFF7EC)]),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10)
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('Add Certification'),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 140),
+                            child: IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return const Add_Certification();
+                              }));
+                            }, icon: const Icon(Icons.keyboard_arrow_right)),
+                          )
+                        ],
+                      ),
                     ),
-                    child: Row(
-                      children: [
-                        const Text('Add Language'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 150),
-                          child: IconButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const Add_Language();
-                            }));
-                          }, icon: const Icon(Icons.keyboard_arrow_right)),
-                        )
-                      ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(onPressed:(){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return const Add_Language();
+                    }));
+                  } ,
+                    child: Container(height: 50,width: 300,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [Color(0xFFFFCA86),
+                            Color(0xFFFFF7EC)]),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10)
+                          )
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('Add Language'),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 150),
+                            child: IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return const Add_Language();
+                              }));
+                            }, icon: const Icon(Icons.keyboard_arrow_right)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

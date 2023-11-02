@@ -1,3 +1,4 @@
+import 'package:assignment_ui/whishlist.dart';
 import 'package:flutter/material.dart';
 import 'add_resume.dart';
 import 'filter.dart';
@@ -26,11 +27,14 @@ class _HomeState extends State<Home> {
               }));
             }, icon: const Icon(Icons.arrow_back_rounded,color: Colors.orange,)),
           ),
-            const Text('Home'),
 
             Padding(
               padding: const EdgeInsets.only(left: 12),
-              child: IconButton(onPressed: (){}, icon: const Icon(Icons.save_as_outlined,color: Colors.orange,)),
+              child: IconButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return const Whishlist();
+                }));
+              }, icon: const Icon(Icons.save_as_outlined,color: Colors.orange,)),
             )
           ],
         ),

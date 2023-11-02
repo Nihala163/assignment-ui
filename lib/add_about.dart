@@ -15,7 +15,9 @@ class _Add_aboutState extends State<Add_about> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add About', style: TextStyle(color: Colors.white),),),
+        title: const Text('Add About', style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: SafeArea(
         child: Center(
           child: ListView(

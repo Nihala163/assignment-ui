@@ -8,6 +8,8 @@ import 'package:assignment_ui/profile.dart';
 import 'package:assignment_ui/whishlist.dart';
 import 'package:flutter/material.dart';
 
+import 'list of add employment.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.orange,
       ),
-      home:const Profile_view (),
+      home:const Home(),
     );
   }
 }

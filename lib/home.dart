@@ -15,35 +15,35 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
-        title: Row(
-          children: [Padding(
-            padding: const EdgeInsets.only(right: 200),
-            child: IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return const Add_resume();
-              }));
-            }, icon: const Icon(Icons.arrow_back_rounded,color: Colors.orange,)),
-          ),
 
-            Padding(
-              padding: const EdgeInsets.only(left: 12),
-              child: IconButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return const Whishlist();
-                }));
-              }, icon: const Icon(Icons.save_as_outlined,color: Colors.orange,)),
-            )
-          ],
-        ),
-      ),
       body: ListView(
         children: [
           Flexible(flex: 2,
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [Padding(
+                      padding: const EdgeInsets.only(right: 200),
+                      child:
+                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 150),
+                        child: Text('Home',style: TextStyle(fontWeight: FontWeight.bold),),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5),
+                        child: IconButton(onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return const Whishlist();
+                          }));
+                        }, icon: const Icon(Icons.save_as_outlined,color: Colors.orange,)),
+                      )
+                    ],
+                  ),
+                ),
                 Center(
                   child: Row(
                     children: [

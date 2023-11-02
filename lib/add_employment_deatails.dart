@@ -62,22 +62,85 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
     'Human resource',
     'Information technology'
   ];
+  String dropdownvalue2='2023';
+  var workYear=[
+    '1990',
+    '1991',
+    '1992',
+    '1993',
+    '1994',
+    '1995',
+    '1996',
+    '1997',
+    '1998',
+    '1999',
+    '2000',
+    '2001',
+    '2002',
+    '2003',
+    '2004',
+    '2005',
+    '2006',
+    '2007',
+    '2008',
+    '2009',
+    '2010',
+    '2011',
+    '2012',
+    '2013',
+    '2014',
+    '2015',
+    '2016',
+    '2017',
+    '2018',
+    '2019',
+    '2020',
+    '2021',
+    '2022',
+    '2023',
+    '2024',
+    '2025',
+    '2026',
+    '2027',
+    '2028',
+    '2029',
+    '2030'
+  ];
+  String dropdownvalue3='July';
+  var workMonth=[
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: const Center(child: Text('Add Employment')),
-            foregroundColor: Colors.black,
-            backgroundColor:Colors.white,
-            actions: [
-              IconButton(onPressed: (){}, icon: const CircleAvatar(child: Icon(Icons.close)))
-            ]
-        ),
         body: Form(
           key:formkey ,
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 90),
+                      child: Center(child: const Text('Add Emplpoyment',style: TextStyle(fontWeight:FontWeight.bold),)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 80),
+                      child: IconButton(onPressed: (){}, icon: const CircleAvatar(child: Icon(Icons.close))),
+                    )
+                  ],
+                ),
                 const Padding(
                   padding: EdgeInsets.only(right: 280),
                   child: Text('Are you a Fresher',style: TextStyle(fontWeight: FontWeight.bold),),
@@ -113,7 +176,7 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                   child: Text('Company Name',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: TextFormField(
                     controller: companyName,
                     decoration: const InputDecoration(
@@ -127,7 +190,7 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                   child: Text('Company Location',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: DropdownButtonFormField(
                       decoration: const InputDecoration(hintText:'Location',border: OutlineInputBorder()),
                       value: dropdownvalue,
@@ -149,7 +212,7 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                   child: Text('Department',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: DropdownButtonFormField(
                       decoration: const InputDecoration(hintText:'Department',border: OutlineInputBorder()),
                       value: dropdownvalue1,
@@ -172,83 +235,93 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                   child: Text('Working From',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
       Row(
-        children: [const Text('Working From'),
+        children: [
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: workYearFrom,
-                  decoration: const InputDecoration(
-                      border:OutlineInputBorder (),
-                      hintText: 'Year',
-                      icon: Icon(Icons.calendar_month_rounded)
-                  ),
-                  onTap: ()async {
-                    var date=await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(1990),
-                        lastDate: DateTime(240));
-                    if (date!=null){
-                      print(DateFormat('YY').format(date));
+                padding: const EdgeInsets.all(10.0),
+                child: DropdownButtonFormField(
+                    decoration: const InputDecoration(hintText:'Year',border: OutlineInputBorder()),
+                    value: dropdownvalue2,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items:workYear.map((String workYear){
+                      return DropdownMenuItem(
+                        value: workYear,
+                        child: Text(workYear),);
+                    }).toList(),
+                    onChanged:(String?newValue){
+                      setState(() {
+                        dropdownvalue2=newValue!;
+                      });
                     }
-                  },
-
                 ),
               ),
             ),
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: workMonthFrom,
-                  decoration: const InputDecoration(border:OutlineInputBorder (),
-                      hintText: 'Month',
-                      icon: Icon(Icons.calendar_month_rounded)),
-                  onTap: ()async {
-                    var date=await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(01),
-                        lastDate: DateTime(31));
-                    if (date!=null){
-                      print(DateFormat('MM').format(date));
+                padding: const EdgeInsets.all(10.0),
+                child:  DropdownButtonFormField(
+                    decoration: const InputDecoration(hintText:'Month',border: OutlineInputBorder()),
+                    value: dropdownvalue3,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items:workMonth.map((String workMonth){
+                      return DropdownMenuItem(
+                        value: workMonth,
+                        child: Text(workMonth),);
+                    }).toList(),
+                    onChanged:(String?newValue){
+                      setState(() {
+                        dropdownvalue3=newValue!;
+                      });
                     }
-                  },
                 ),
               ),
             ),
         ],
       ),
+                const Padding(
+                  padding: EdgeInsets.only(right: 300),
+                  child: Text('Working Till',style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
       Row(
-        children: [const Text('Working Till'),
+        children: [
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: workYearTill,
-                  decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Year',icon: Icon(Icons.calendar_month_rounded)),
-                  onTap: ()async {
-                    var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2040));
-                    if (date!=null){
-                      print(DateFormat('YY').format(date));
+                padding: const EdgeInsets.all(10.0),
+                child: DropdownButtonFormField(
+                    decoration: const InputDecoration(hintText:'Year',border: OutlineInputBorder(),),
+                    borderRadius: BorderRadius.circular(30),
+                    value: dropdownvalue2,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items:workYear.map((String workYear){
+                      return DropdownMenuItem(
+                        value: workYear,
+                        child: Text(workYear),);
+                    }).toList(),
+                    onChanged:(String?newValue){
+                      setState(() {
+                        dropdownvalue2=newValue!;
+                      });
                     }
-                  },
                 ),
               ),
             ),
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: workMonthTill,
-                  decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Month',icon: Icon(Icons.calendar_month_rounded)),
-                  onTap: ()async {
-                    var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(01), lastDate: DateTime(31));
-                    if (date!=null){
-                      print(DateFormat('MM').format(date));
+                padding: const EdgeInsets.all(10.0),
+                child:  DropdownButtonFormField(
+                    decoration: const InputDecoration(hintText:'Month',border: OutlineInputBorder()),
+                    value: dropdownvalue3,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items:workMonth.map((String workMonth){
+                      return DropdownMenuItem(
+                        value: workMonth,
+                        child: Text(workMonth),);
+                    }).toList(),
+                    onChanged:(String?newValue){
+                      setState(() {
+                        dropdownvalue3=newValue!;
+                      });
                     }
-                  },
                 ),
               ),
             ),

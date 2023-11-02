@@ -26,9 +26,10 @@ class _HomeState extends State<Home> {
               }));
             }, icon: const Icon(Icons.arrow_back_rounded,color: Colors.orange,)),
           ),
+            const Text('Home'),
 
             Padding(
-              padding: const EdgeInsets.only(left: 90),
+              padding: const EdgeInsets.only(left: 12),
               child: IconButton(onPressed: (){}, icon: const Icon(Icons.save_as_outlined,color: Colors.orange,)),
             )
           ],
@@ -63,7 +64,7 @@ class _HomeState extends State<Home> {
                         padding: const EdgeInsets.all(8.0),
                         child: CircleAvatar(child: IconButton(onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return Filter();
+                            return const Filter();
                           }));
                         }, icon:const Icon(Icons.save_as_outlined))),
                       ),
@@ -73,7 +74,7 @@ class _HomeState extends State<Home> {
                 Row(
                   children: [
                     Flexible(
-                      child: Container(
+                      child: SizedBox(
                           height: 50,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
@@ -130,9 +131,11 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                Flexible(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 200,
+                    height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
                       child: Card(
@@ -140,30 +143,36 @@ class _HomeState extends State<Home> {
                         child: Column(
                           children: [Row(
                             children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                color: Colors.grey,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10,left: 10),
+                                child: Container(
+                                  height: 50,
+                                  width: 50,
+                                  color: Colors.grey,
+                                ),
                               ),
-                              Column(
-                                children: [
-                                  Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Text('College Name'),
-                                  Text('20k-25k/Month'),
-                                ],
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
+                                    Text('College Name'),
+                                    Text('20k-25k/Month'),
+                                  ],
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 155,),
-                                child: IconButton(onPressed: (){}, icon: Icon(Icons.save)),
+                                child: IconButton(onPressed: (){}, icon: const Icon(Icons.save)),
                               )
                             ],
                           ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 155),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 155),
                               child: Text('Full Time             |          2020-2023 ',style: TextStyle(fontWeight: FontWeight.bold),),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 40),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 40),
                               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Kozhikode'),
@@ -177,9 +186,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Flexible(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 200,
+                    height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
                       child: Card(
@@ -187,30 +198,36 @@ class _HomeState extends State<Home> {
                         child: Column(
                           children: [Row(
                             children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                color: Colors.grey,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10,left: 10),
+                                child: Container(
+                                  height: 50,
+                                  width: 50,
+                                  color: Colors.grey,
+                                ),
                               ),
-                              Column(
-                                children: [
-                                  Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Text('College Name'),
-                                  Text('20k-25k/Month'),
-                                ],
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
+                                    Text('College Name'),
+                                    Text('20k-25k/Month'),
+                                  ],
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 155,),
-                                child: IconButton(onPressed: (){}, icon: Icon(Icons.save)),
+                                child: IconButton(onPressed: (){}, icon: const Icon(Icons.save)),
                               )
                             ],
                           ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 155),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 155),
                               child: Text('Full Time             |          2020-2023 ',style: TextStyle(fontWeight: FontWeight.bold),),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 40),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 40),
                               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Kozhikode'),
@@ -224,9 +241,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Flexible(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 200,
+                    height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
                       child: Card(
@@ -234,30 +253,36 @@ class _HomeState extends State<Home> {
                         child: Column(
                           children: [Row(
                             children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                color: Colors.grey,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10,left: 10),
+                                child: Container(
+                                  height: 50,
+                                  width: 50,
+                                  color: Colors.grey,
+                                ),
                               ),
-                              Column(
-                                children: [
-                                  Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Text('College Name'),
-                                  Text('20k-25k/Month'),
-                                ],
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
+                                    Text('College Name'),
+                                    Text('20k-25k/Month'),
+                                  ],
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 155,),
-                                child: IconButton(onPressed: (){}, icon: Icon(Icons.save)),
+                                child: IconButton(onPressed: (){}, icon: const Icon(Icons.save)),
                               )
                             ],
                           ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 155),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 155),
                               child: Text('Full Time             |          2020-2023 ',style: TextStyle(fontWeight: FontWeight.bold),),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 40),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 40),
                               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Kozhikode'),
@@ -271,9 +296,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Flexible(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 200,
+                    height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
                       child: Card(
@@ -281,30 +308,36 @@ class _HomeState extends State<Home> {
                         child: Column(
                           children: [Row(
                             children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                color: Colors.grey,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10,left: 10),
+                                child: Container(
+                                  height: 50,
+                                  width: 50,
+                                  color: Colors.grey,
+                                ),
                               ),
-                              Column(
-                                children: [
-                                  Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Text('College Name'),
-                                  Text('20k-25k/Month'),
-                                ],
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text('UI/UX Designer',style: TextStyle(fontWeight: FontWeight.bold),),
+                                    Text('College Name'),
+                                    Text('20k-25k/Month'),
+                                  ],
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 155,),
-                                child: IconButton(onPressed: (){}, icon: Icon(Icons.save)),
+                                child: IconButton(onPressed: (){}, icon: const Icon(Icons.save)),
                               )
                             ],
                           ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 155),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 155),
                               child: Text('Full Time             |          2020-2023 ',style: TextStyle(fontWeight: FontWeight.bold),),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 40),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 40),
                               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Kozhikode'),

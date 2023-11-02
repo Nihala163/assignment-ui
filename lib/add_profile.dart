@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:assignment_ui/add_employment.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +5,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'add_education.dart';
 
 class Add_Details extends StatefulWidget {
   const Add_Details({super.key});
@@ -111,7 +109,7 @@ class _Add_DetailsState extends State<Add_Details> {
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           controller: dob,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               labelText: "Date of birth",
                               icon: Icon(Icons.calendar_month_rounded)),
                           onTap: ()async {
@@ -173,9 +171,9 @@ class _Add_DetailsState extends State<Add_Details> {
                       ),
                       ElevatedButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return Add_employment();
+                          return const Add_employment();
                         }));
-                      },child: Icon(Icons.arrow_right_alt_sharp)),
+                      },child: const Icon(Icons.arrow_right_alt_sharp)),
                     ],
                   ),
                 ),

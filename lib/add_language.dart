@@ -28,10 +28,10 @@ class _Add_LanguageState extends State<Add_Language> {
                       radius: const Radius.circular(20),
                       strokeWidth: 1,
                       child: Center(
-                        child: Container(height: 200,width: 400,
+                        child: SizedBox(height: 200,width: 400,
                           child: TextButton(onPressed:(){
                             Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return AddingLanguage();
+                              return const AddingLanguage();
                             }));
                           } ,child: const Center(child: Text('Add Language'))),
                         ),

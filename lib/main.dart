@@ -1,11 +1,12 @@
 
-import 'package:assignment_ui/add_employment_deatails.dart';
-import 'package:assignment_ui/profile.dart';
+import 'package:assignment_ui/add_about.dart';
+import 'package:assignment_ui/add_education.dart';
+import 'package:assignment_ui/add_employment.dart';
+import 'package:assignment_ui/add_profile.dart';
+import 'package:assignment_ui/home.dart';
+import 'package:assignment_ui/whishlist.dart';
 import 'package:flutter/material.dart';
 
-import 'add_education_detail.dart';
-import 'add_language.dart';
-import 'add_resume.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.orange,
       ),
-      home:AddEmploymentDetails(),
+      home:const Whishlist (),
     );
   }
 }

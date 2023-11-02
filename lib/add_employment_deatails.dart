@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -55,7 +54,7 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
     'Chandigarh',
     'Delhi',
   ];
-  String dropdownvalue1=' ';
+  String dropdownvalue1='Finance';
   var department=[
     'Finance',
     'Marketing',
@@ -76,201 +75,202 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
         ),
         body: Form(
           key:formkey ,
-          child: Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 280),
-                child: Text('Are you a Fresher',style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
-              Row(
-                children: [
-                  Flexible(
-                    child: RadioListTile(title: const Text('Yes'),
-                      value: 'yes',
-                      groupValue: fresher,
-                      onChanged: (value){
-                        setState(() {
-                          fresher=value.toString();
-                        });
-                      },
-                    ),
-                  ),
-                  Flexible(
-                    child: RadioListTile(title: const Text('No'),
-                      value: 'no',
-                      groupValue: fresher,
-                      onChanged: (value){
-                        setState(() {
-                          fresher=value.toString();
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 300),
-                child: Text('Company Name',style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: companyName,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Name',
-                  ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(right: 280),
+                  child: Text('Are you a Fresher',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 280),
-                child: Text('Company Location',style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: DropdownButtonFormField(
-                    decoration: const InputDecoration(hintText:'Location',border: OutlineInputBorder()),
-                    value: dropdownvalue,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items:location.map((String location){
-                      return DropdownMenuItem(
-                        value: location,
-                        child: Text(location),);
-                    }).toList(),
-                    onChanged:(String?newValue){
-                      setState(() {
-                        dropdownvalue=newValue!;
-                      });
-                    }
+                Row(
+                  children: [
+                    Flexible(
+                      child: RadioListTile(title: const Text('Yes'),
+                        value: 'yes',
+                        groupValue: fresher,
+                        onChanged: (value){
+                          setState(() {
+                            fresher=value.toString();
+                          });
+                        },
+                      ),
+                    ),
+                    Flexible(
+                      child: RadioListTile(title: const Text('No'),
+                        value: 'no',
+                        groupValue: fresher,
+                        onChanged: (value){
+                          setState(() {
+                            fresher=value.toString();
+                          });
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 310),
-                child: Text('Department',style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: DropdownButtonFormField(
+                const Padding(
+                  padding: EdgeInsets.only(right: 300),
+                  child: Text('Company Name',style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: companyName,
                     decoration: const InputDecoration(
-                        hintText:'Department',
-                        border: OutlineInputBorder()),
-                    value: dropdownvalue1,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items:department.map((String department){
-                      return DropdownMenuItem(
-                        value: department,
-                        child: Text(department),);
-                    }).toList(),
-                    onChanged:(String?newValue){
-                      setState(() {
-                        dropdownvalue=newValue!;
-                      });
-                    }
+                        border: OutlineInputBorder(),
+                        hintText: 'Name',
+                    ),
+                  ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 290),
-                child: Text('Working From',style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
+                const Padding(
+                  padding: EdgeInsets.only(right: 280),
+                  child: Text('Company Location',style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButtonFormField(
+                      decoration: const InputDecoration(hintText:'Location',border: OutlineInputBorder()),
+                      value: dropdownvalue,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      items:location.map((String location){
+                        return DropdownMenuItem(
+                          value: location,
+                          child: Text(location),);
+                      }).toList(),
+                      onChanged:(String?newValue){
+                        setState(() {
+                          dropdownvalue=newValue!;
+                        });
+                      }
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(right: 310),
+                  child: Text('Department',style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButtonFormField(
+                      decoration: const InputDecoration(hintText:'Department',border: OutlineInputBorder()),
+                      value: dropdownvalue1,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      items:department.map((String department){
+                        return DropdownMenuItem(
+                          value: department,
+                          child: Text(department),);
+                      }).toList(),
+                      onChanged:(String?newValue){
+                        setState(() {
+                          dropdownvalue1=newValue!;
+                        });
+                      }
+                  ),
+                ),
+
+                const Padding(
+                  padding: EdgeInsets.only(right: 290),
+                  child: Text('Working From',style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
       Row(
         children: [const Text('Working From'),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: workYearFrom,
-                decoration: const InputDecoration(
-                    border:OutlineInputBorder (),
-                    hintText: 'Year',
-                    icon: Icon(Icons.calendar_month_rounded)
-                ),
-                onTap: ()async {
-                  var date=await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(1990),
-                      lastDate: DateTime(240));
-                  if (date!=null){
-                    print(DateFormat('YY').format(date!));
-                  }
-                },
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: workYearFrom,
+                  decoration: const InputDecoration(
+                      border:OutlineInputBorder (),
+                      hintText: 'Year',
+                      icon: Icon(Icons.calendar_month_rounded)
+                  ),
+                  onTap: ()async {
+                    var date=await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1990),
+                        lastDate: DateTime(240));
+                    if (date!=null){
+                      print(DateFormat('YY').format(date));
+                    }
+                  },
 
+                ),
               ),
             ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: workMonthFrom,
-                decoration: const InputDecoration(border:OutlineInputBorder (),
-                    hintText: 'Month',
-                    icon: Icon(Icons.calendar_month_rounded)),
-                onTap: ()async {
-                  var date=await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(01),
-                      lastDate: DateTime(31));
-                  if (date!=null){
-                    print(DateFormat('MM').format(date!));
-                  }
-                },
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: workMonthFrom,
+                  decoration: const InputDecoration(border:OutlineInputBorder (),
+                      hintText: 'Month',
+                      icon: Icon(Icons.calendar_month_rounded)),
+                  onTap: ()async {
+                    var date=await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(01),
+                        lastDate: DateTime(31));
+                    if (date!=null){
+                      print(DateFormat('MM').format(date));
+                    }
+                  },
+                ),
               ),
             ),
-          ),
         ],
       ),
       Row(
         children: [const Text('Working Till'),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: workYearTill,
-                decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Year',icon: Icon(Icons.calendar_month_rounded)),
-                onTap: ()async {
-                  var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2040));
-                  if (date!=null){
-                    print(DateFormat('YY').format(date!));
-                  }
-                },
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: workYearTill,
+                  decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Year',icon: Icon(Icons.calendar_month_rounded)),
+                  onTap: ()async {
+                    var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1990), lastDate: DateTime(2040));
+                    if (date!=null){
+                      print(DateFormat('YY').format(date));
+                    }
+                  },
+                ),
               ),
             ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: workMonthTill,
-                decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Month',icon: Icon(Icons.calendar_month_rounded)),
-                onTap: ()async {
-                  var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(01), lastDate: DateTime(31));
-                  if (date!=null){
-                    print(DateFormat('MM').format(date!));
-                  }
-                },
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: workMonthTill,
+                  decoration: const InputDecoration(border:OutlineInputBorder (),hintText: 'Month',icon: Icon(Icons.calendar_month_rounded)),
+                  onTap: ()async {
+                    var date=await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(01), lastDate: DateTime(31));
+                    if (date!=null){
+                      print(DateFormat('MM').format(date));
+                    }
+                  },
+                ),
               ),
             ),
-          ),
         ],
       ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(onPressed: (){}, child: const Text('Cancel')),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context){
-                  return const Add_education();
-                }));
-              }, child: const Text('Submit')),
-            ],
-          ),
+            padding: const EdgeInsets.all(8.0),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(onPressed: (){}, child: const Text('Cancel')),
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context){
+                    return const Add_education();
+                  }));
+                }, child: const Text('Submit')),
+              ],
+            ),
 
         ),
       ]
     ),
+          ),
     ),
     );
   }

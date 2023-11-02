@@ -1,6 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 
+import 'package:assignment_ui/add_employment.dart';
+import 'package:assignment_ui/add_profile.dart';
+import 'package:assignment_ui/home.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -28,8 +31,7 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
   var course=[
     'Diploma',
     'PG',
-    'MG',
-    'Other'
+    'Other',
   ];
 
   String courseType='Full time';
@@ -41,7 +43,11 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
           title: const Center(child: Text('Add Education')),
         foregroundColor: Colors.black,
         backgroundColor:Colors.white,
-      actions: [IconButton(onPressed: (){}, icon: const CircleAvatar(child: Icon(Icons.close)))]),
+      actions: [IconButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder:(context){
+          return const Home();
+        }));
+      }, icon: const CircleAvatar(child: Icon(Icons.close)))]),
       
       body: Form(key: formkey,
         child:Column(
@@ -97,7 +103,7 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
                  }).toList() ,
                  onChanged: (String?newObject){
                    setState(() {
-                     dropdownvalue=newObject!;
+                     dropdownvalue1=newObject!;
                    });
              }),
            ),
@@ -174,7 +180,7 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
                   );
                   if(pickeddate!=null){
                     print(pickeddate);
-                    print(DateFormat('DD-MM-YY').format(pickeddate!));
+                    print(DateFormat('DD-MM-YY').format(pickeddate));
                   }
                 },
               ),
@@ -198,7 +204,7 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
                   );
                   if(pickeddate!=null){
                     print(pickeddate);
-                    print(DateFormat('DD-MM-YY').format(pickeddate!));
+                    print(DateFormat('DD-MM-YY').format(pickeddate));
                   }
                 },
               ),
@@ -207,20 +213,28 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: (){},
-                      child: const Text('Cancel'),
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder:(context){
+                      return const Add_Details();
+                    }));
+                  },
                       style:ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.orange,
-                  ))
+                  ),
+                      child: const Text('Cancel'))
                 ),
 
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: (){}, child: const Text('Submit'),
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder:(context){
+                      return const Add_employment();
+                    }));
+                  },
                     style:ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                    ),
+                    ), child: const Text('Submit'),
                 ),
                 ),
               ],

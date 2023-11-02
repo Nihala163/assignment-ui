@@ -40,7 +40,7 @@ class _Add_CertificationState extends State<Add_Certification> {
                   radius: const Radius.circular(20),
                   strokeWidth: 3,
                   child: Center(
-                    child: Container(height: 100,width: 200,
+                    child: SizedBox(height: 100,width: 200,
                       child: TextButton(
                           onPressed:_pickFile,
                           child: const Center(child: Text('Upload you Certificates'))),

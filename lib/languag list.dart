@@ -13,7 +13,7 @@ class _AddingLanguageState extends State<AddingLanguage> {
     var language=TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add About', style: TextStyle(color: Colors.white),),),
+        title: const Text('Add Language', style: TextStyle(color: Colors.white),),),
       body: SafeArea(
         child: Center(
           child: ListView(
@@ -24,14 +24,14 @@ class _AddingLanguageState extends State<AddingLanguage> {
                 child: Container(
                   decoration: BoxDecoration(
                     border: Border.all(
-                        color: Color(0xFFFFA756)), // Add black border
+                        color: const Color(0xFFFFA756)), // Add black border
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: TextField(
                     controller: language,
                     keyboardType: TextInputType.multiline,
                     maxLines: 5,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none, // Remove default border
                       labelText: "Add language",
                       hintText: "Enter language",
@@ -44,28 +44,15 @@ class _AddingLanguageState extends State<AddingLanguage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 88.0, right: 90.0),
                 child: ElevatedButton(onPressed:(){},
-                  child: Container(
-                    child: Center(
-                      child: Text(
-                        "ADD",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFFFA756),
-                    ),
-                    height: 50,
-                    width: 50,
+                  child:const Text('Add'),
                   ),
                 ),
-              ),
             ],
           ),
         ),

@@ -43,7 +43,7 @@ class _Add_resumeState extends State<Add_resume> {
                       radius: const Radius.circular(20),
                       strokeWidth: 1,
                       child: Center(
-                        child: Container(height: 200,width: 400,
+                        child: SizedBox(height: 200,width: 400,
                           child: TextButton(onPressed:_pickFile,
                               child: const Center(child: Text('Upload Resume'))),
                         ),

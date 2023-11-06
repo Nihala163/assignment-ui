@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
 
 class Filter extends StatefulWidget {
   const Filter({super.key});
@@ -13,7 +12,7 @@ class _FilterState extends State<Filter> {
 
   @override
   Widget build(BuildContext context) {
-    List<bool>isCheckedList=[false,false,false];
+    List<bool>isCheckedList=[true,true,false];
     return Scaffold(
       body: ListView(
         children: [
@@ -151,6 +150,7 @@ class _FilterState extends State<Filter> {
                         },
                           value:isCheckedList[2],
                           title:const Text('Night Shift') ,
+
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 575),

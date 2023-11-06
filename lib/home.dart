@@ -1,6 +1,5 @@
 import 'package:assignment_ui/whishlist.dart';
 import 'package:flutter/material.dart';
-import 'add_resume.dart';
 import 'filter.dart';
 
 
@@ -12,72 +11,102 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.white,
+        centerTitle: true,
+        title:  const Text('Home',style: TextStyle(fontWeight: FontWeight.bold
+        ),),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return const Whishlist();
+            }));
+          }, icon: const Icon(Icons.save),color: Colors.orange,)
+        ],
+
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text("Profile"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.contact_mail),
+              title: const Text("Contact"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.account_box),
+              title: const Text("About App"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.power_settings_new_rounded),
+              title: const Text("Sign Out"),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            )
+          ],
+        ),
+      ),
 
       body: ListView(
         children: [
-          Flexible(flex: 2,
+          Flexible(flex: 1,
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [Padding(
-                      padding: const EdgeInsets.only(right: 200),
-                      child:
-                    ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 150),
-                        child: Text('Home',style: TextStyle(fontWeight: FontWeight.bold),),
-                      ),
 
-                      Padding(
-                        padding: const EdgeInsets.only(right: 5),
-                        child: IconButton(onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return const Whishlist();
-                          }));
-                        }, icon: const Icon(Icons.save_as_outlined,color: Colors.orange,)),
-                      )
-                    ],
-                  ),
-                ),
                 Center(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 50),
-                        child: Container(
-                          height: 50,
-                          width: 300,
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border:Border.all() ),
-                          child: Row(
-                            children: [
-                              const Text('Search'),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 200),
-                                child: IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: Colors.orange,)),
-                              ),
-                            ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30),
+                          child: Container(
+                            height: 50,
+                            width: 300,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border:Border.all() ),
+                            child: Row(
+                              children: [
+                                const Text('Search'),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 200),
+                                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: Colors.orange,)),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CircleAvatar(child: IconButton(onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return const Filter();
-                          }));
-                        }, icon:const Icon(Icons.save_as_outlined))),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(child: IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return const Filter();
+                            }));
+                          }, icon:const Icon(Icons.save_as_outlined))),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Row(
                   children: [
                     Flexible(
+                      flex: 1,
                       child: SizedBox(
                           height: 50,
                           child: ListView(
@@ -142,6 +171,7 @@ class _HomeState extends State<Home> {
                     height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
+                      flex: 1,
                       child: Card(
                         elevation: 2,
                         child: Column(
@@ -197,6 +227,7 @@ class _HomeState extends State<Home> {
                     height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
+                      flex: 1,
                       child: Card(
                         elevation: 2,
                         child: Column(
@@ -252,6 +283,7 @@ class _HomeState extends State<Home> {
                     height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
+                      flex: 1,
                       child: Card(
                         elevation: 2,
                         child: Column(
@@ -307,6 +339,7 @@ class _HomeState extends State<Home> {
                     height: 150,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: Flexible(
+                      flex: 1,
                       child: Card(
                         elevation: 2,
                         child: Column(
@@ -365,3 +398,5 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+

@@ -59,7 +59,9 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
-                decoration: const InputDecoration(hintText:'Education',border: OutlineInputBorder()),
+                decoration: const InputDecoration(border: OutlineInputBorder()),
+                  hint: const Text('Education'),
+
                   value: dropdownvalue,
                   icon: const Icon(Icons.keyboard_arrow_down),
                   items:education.map((String education){
@@ -93,7 +95,8 @@ class _AddEducationDetailsState extends State<AddEducationDetails> {
            Padding(
              padding: const EdgeInsets.all(8.0),
              child: DropdownButtonFormField(
-                 decoration: const InputDecoration(hintText:'Course',border: OutlineInputBorder() ),
+                 decoration: const InputDecoration(border: OutlineInputBorder() ),
+                 hint: const Text('Course'),
                  value: dropdownvalue1,
                  icon: const Icon(Icons.keyboard_arrow_down),
                  items:course.map((String  course){

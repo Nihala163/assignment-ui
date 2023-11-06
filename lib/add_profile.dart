@@ -236,15 +236,22 @@ class _Add_DetailsState extends State<Add_Details> {
                         },
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        user_details();
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const Add_employment();
-                            }));
-                      },
-                      child: const Icon(Icons.arrow_right_alt_sharp),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          user_details();
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                                return const Add_employment();
+                              }));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: Size(150, 20),
+
+                        ),
+                        child: const Icon(Icons.arrow_right_alt_sharp,color: Colors.white,size: 50,),
+                      ),
                     ),
                   ],
                 ),

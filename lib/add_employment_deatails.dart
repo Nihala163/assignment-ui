@@ -1,5 +1,6 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import 'add_education.dart';
 
@@ -124,20 +125,24 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Form(
-          key:formkey ,
-          child: SingleChildScrollView(
-            child: Column(
+      body: Form(
+        key:formkey ,
+        child: SingleChildScrollView(
+          child: Column(
               children: [
                 Row(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 90),
-                      child: Center(child: const Text('Add Emplpoyment',style: TextStyle(fontWeight:FontWeight.bold),)),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 90),
+                      child: Center(child: Text('Add Emplpoyment',style: TextStyle(fontWeight:FontWeight.bold),)),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 80),
-                      child: IconButton(onPressed: (){}, icon: const CircleAvatar(child: Icon(Icons.close))),
+                      child: IconButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder:(context){
+                          return const Add_education();
+                        }));
+                      }, icon: const CircleAvatar(child: Icon(Icons.close))),
                     )
                   ],
                 ),
@@ -180,8 +185,8 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                   child: TextFormField(
                     controller: companyName,
                     decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Name',
+                      border: OutlineInputBorder(),
+                      hintText: 'Name',
                     ),
                   ),
                 ),
@@ -192,7 +197,9 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: DropdownButtonFormField(
-                      decoration: const InputDecoration(hintText:'Location',border: OutlineInputBorder()),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder()),
+                      hint: const Text('Location'),
                       value: dropdownvalue,
                       icon: const Icon(Icons.keyboard_arrow_down),
                       items:location.map((String location){
@@ -214,7 +221,9 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: DropdownButtonFormField(
-                      decoration: const InputDecoration(hintText:'Department',border: OutlineInputBorder()),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder()),
+                      hint: Text('Depatment'),
                       value: dropdownvalue1,
                       icon: const Icon(Icons.keyboard_arrow_down),
                       items:department.map((String department){
@@ -234,117 +243,134 @@ class _AddEmploymentDetailsState extends State<AddEmploymentDetails> {
                   padding: EdgeInsets.only(right: 290),
                   child: Text('Working From',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
-      Row(
-        children: [
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: DropdownButtonFormField(
-                    decoration: const InputDecoration(hintText:'Year',border: OutlineInputBorder()),
-                    value: dropdownvalue2,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items:workYear.map((String workYear){
-                      return DropdownMenuItem(
-                        value: workYear,
-                        child: Text(workYear),);
-                    }).toList(),
-                    onChanged:(String?newValue){
-                      setState(() {
-                        dropdownvalue2=newValue!;
-                      });
-                    }
+                Row(
+                  children: [
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: DropdownButtonFormField(
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder()),
+                            hint: Text('Year'),
+                            value: dropdownvalue2,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items:workYear.map((String workYear){
+                              return DropdownMenuItem(
+                                value: workYear,
+                                child: Text(workYear),);
+                            }).toList(),
+                            onChanged:(String?newValue){
+                              setState(() {
+                                dropdownvalue2=newValue!;
+                              });
+                            }
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child:  DropdownButtonFormField(
+                            decoration: const InputDecoration(border: OutlineInputBorder()),
+                            hint: Text('Month'),
+                            value: dropdownvalue3,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items:workMonth.map((String workMonth){
+                              return DropdownMenuItem(
+                                value: workMonth,
+                                child: Text(workMonth),);
+                            }).toList(),
+                            onChanged:(String?newValue){
+                              setState(() {
+                                dropdownvalue3=newValue!;
+                              });
+                            }
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child:  DropdownButtonFormField(
-                    decoration: const InputDecoration(hintText:'Month',border: OutlineInputBorder()),
-                    value: dropdownvalue3,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items:workMonth.map((String workMonth){
-                      return DropdownMenuItem(
-                        value: workMonth,
-                        child: Text(workMonth),);
-                    }).toList(),
-                    onChanged:(String?newValue){
-                      setState(() {
-                        dropdownvalue3=newValue!;
-                      });
-                    }
-                ),
-              ),
-            ),
-        ],
-      ),
                 const Padding(
                   padding: EdgeInsets.only(right: 300),
                   child: Text('Working Till',style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
-      Row(
-        children: [
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: DropdownButtonFormField(
-                    decoration: const InputDecoration(hintText:'Year',border: OutlineInputBorder(),),
-                    borderRadius: BorderRadius.circular(30),
-                    value: dropdownvalue2,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items:workYear.map((String workYear){
-                      return DropdownMenuItem(
-                        value: workYear,
-                        child: Text(workYear),);
-                    }).toList(),
-                    onChanged:(String?newValue){
-                      setState(() {
-                        dropdownvalue2=newValue!;
-                      });
-                    }
+                Row(
+                  children: [
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: DropdownButtonFormField(
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),),
+                            borderRadius: BorderRadius.circular(30),
+                            hint: Text('Year'),
+                            value: dropdownvalue2,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items:workYear.map((String workYear){
+                              return DropdownMenuItem(
+                                value: workYear,
+                                child: Text(workYear),);
+                            }).toList(),
+                            onChanged:(String?newValue){
+                              setState(() {
+                                dropdownvalue2=newValue!;
+                              });
+                            }
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child:  DropdownButtonFormField(
+                            decoration: const InputDecoration(border: OutlineInputBorder()),
+                            hint: Text('Month'),
+                            value: dropdownvalue3,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items:workMonth.map((String workMonth){
+                              return DropdownMenuItem(
+                                value: workMonth,
+                                child: Text(workMonth),);
+                            }).toList(),
+                            onChanged:(String?newValue){
+                              setState(() {
+                                dropdownvalue3=newValue!;
+                              });
+                            }
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child:  DropdownButtonFormField(
-                    decoration: const InputDecoration(hintText:'Month',border: OutlineInputBorder()),
-                    value: dropdownvalue3,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items:workMonth.map((String workMonth){
-                      return DropdownMenuItem(
-                        value: workMonth,
-                        child: Text(workMonth),);
-                    }).toList(),
-                    onChanged:(String?newValue){
-                      setState(() {
-                        dropdownvalue3=newValue!;
-                      });
-                    }
-                ),
-              ),
-            ),
-        ],
-      ),
-        Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(onPressed: (){}, child: const Text('Cancel')),
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context){
-                    return const Add_education();
-                  }));
-                }, child: const Text('Submit')),
-              ],
-            ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: Colors.orange,
 
-        ),
-      ]
-    ),
+                          ),
+                          child: const Text('Cancel')),
+                      ElevatedButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder:(context){
+                          return const Add_education();
+                        }));
+                      },
+                          style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+
+                          ),
+                          child: const Text('Submit')),
+                    ],
+                  ),
+
+                ),
+              ]
           ),
-    ),
+        ),
+      ),
     );
   }
 }

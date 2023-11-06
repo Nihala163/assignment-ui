@@ -18,6 +18,7 @@ class _AddEmploymentListState extends State<AddEmploymentList> {
             child: Center(child: Text('Add your employment',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
           ),
 
+
         ],
       ),
     );

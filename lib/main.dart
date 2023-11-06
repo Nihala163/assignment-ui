@@ -1,6 +1,7 @@
 
 import 'package:assignment_ui/add_about.dart';
 import 'package:assignment_ui/add_education.dart';
+import 'package:assignment_ui/add_education_detail.dart';
 import 'package:assignment_ui/add_employment.dart';
 import 'package:assignment_ui/add_profile.dart';
 import 'package:assignment_ui/home.dart';
@@ -8,6 +9,7 @@ import 'package:assignment_ui/profile.dart';
 import 'package:assignment_ui/whishlist.dart';
 import 'package:flutter/material.dart';
 
+import 'add_employment_deatails.dart';
 import 'list of add employment.dart';
 
 
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
          primarySwatch: Colors.orange,
       ),
-      home:const Add_detail(),
+      home:const AddEducationDetails(),
     );
   }
 }
